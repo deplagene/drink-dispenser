@@ -1,0 +1,11 @@
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Infrastructure.deps.json
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Infrastructure.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Infrastructure.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.AssemblyInfoInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.AssemblyInfo.cs
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.csproj.CoreCompileInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\refint\DrinkDispenser.Infrastructure.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\ref\DrinkDispenser.Infrastructure.dll

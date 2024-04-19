@@ -1,0 +1,11 @@
+D:\projects\drink-dispenser\DrinkDispenser.Domain\bin\Debug\net8.0\DrinkDispenser.Domain.deps.json
+D:\projects\drink-dispenser\DrinkDispenser.Domain\bin\Debug\net8.0\DrinkDispenser.Domain.dll
+D:\projects\drink-dispenser\DrinkDispenser.Domain\bin\Debug\net8.0\DrinkDispenser.Domain.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\DrinkDispenser.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\DrinkDispenser.Domain.AssemblyInfoInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\DrinkDispenser.Domain.AssemblyInfo.cs
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\DrinkDispenser.Domain.csproj.CoreCompileInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\DrinkDispenser.Domain.dll
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\refint\DrinkDispenser.Domain.dll
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\DrinkDispenser.Domain.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Domain\obj\Debug\net8.0\ref\DrinkDispenser.Domain.dll

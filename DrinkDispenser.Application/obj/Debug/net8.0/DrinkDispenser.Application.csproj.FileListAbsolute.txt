@@ -1,0 +1,11 @@
+D:\projects\drink-dispenser\DrinkDispenser.Application\bin\Debug\net8.0\DrinkDispenser.Application.deps.json
+D:\projects\drink-dispenser\DrinkDispenser.Application\bin\Debug\net8.0\DrinkDispenser.Application.dll
+D:\projects\drink-dispenser\DrinkDispenser.Application\bin\Debug\net8.0\DrinkDispenser.Application.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.AssemblyInfoInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.AssemblyInfo.cs
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.csproj.CoreCompileInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.dll
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\refint\DrinkDispenser.Application.dll
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\ref\DrinkDispenser.Application.dll

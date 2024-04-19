@@ -1,0 +1,11 @@
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\bin\Debug\net8.0\DrinkDispenser.Contracts.deps.json
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\bin\Debug\net8.0\DrinkDispenser.Contracts.dll
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\bin\Debug\net8.0\DrinkDispenser.Contracts.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.AssemblyInfoInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.AssemblyInfo.cs
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.csproj.CoreCompileInputs.cache
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.dll
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\refint\DrinkDispenser.Contracts.dll
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\ref\DrinkDispenser.Contracts.dll
