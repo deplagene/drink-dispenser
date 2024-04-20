@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrinkDispenser.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f098f4736ae363c30d0f588a6fac440610f9ab1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06f89beafad6e7f57d87ad90d9b160b98a46bdf0")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrinkDispenser.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrinkDispenser.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
