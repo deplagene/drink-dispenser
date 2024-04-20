@@ -1,5 +1,6 @@
 using DrinkDispenser.Application.Common.Interfaces;
 using DrinkDispenser.Domain.Common.Abstractions;
+using DrinkDispenser.Infrastructure.BackgroundServices;
 using DrinkDispenser.Infrastructure.Persistance;
 using DrinkDispenser.Infrastructure.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +15,13 @@ public static class DependencyInjection
     {
         services
             .AddDbContext<ApplicationDbContext>(options => options
-                .UseNpgsql(configuration.GetConnectionString("Database")));
+                .UseNpgsql(configuration.GetConnectionString("ConnectionStrings:Database")));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IDrinkRepository, DrinkRepository>();
         services.AddScoped<ICoinRepository, CoinRepository>();
+
+        services.AddHostedService<MigrationBackgroundServices>();
 
         return services;
     }
