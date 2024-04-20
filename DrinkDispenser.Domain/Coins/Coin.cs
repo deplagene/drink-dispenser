@@ -1,22 +1,28 @@
 using DrinkDispenser.Domain.Common.Errors.Coins;
+using DrinkDispenser.Domain.Common.Models;
+using DrinkDispenser.Domain.VendingMachines;
 using ErrorOr;
 
-namespace DrinkDispenser.Domain.VendingMachines;
+namespace DrinkDispenser.Domain.Coins;
 
-public record Coin
+public class Coin : Entity<Guid>
 {
     private const string SUPPORTED_CURRENCY = "RUB";
 
     private static readonly IReadOnlyCollection<int> SupportedNominals = [1, 2, 5, 10];
 
-    private Coin(decimal nominal, string currency)
+    private Coin(int nominal, string currency)
     {
         Nominal = nominal;
         Currency = currency;
     }
-    public decimal Nominal { get; private set; }
+    public int Nominal { get; private set; }
 
     public string Currency { get; private set; } = null!;
+
+    public VendingMachine VendingMachine { get; set; }
+
+    public Guid VendingMachineId { get; private set; }
 
     public static ErrorOr<Coin> Create(int nominal, string currency)
     {

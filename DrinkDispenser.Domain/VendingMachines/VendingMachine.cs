@@ -1,3 +1,4 @@
+using DrinkDispenser.Domain.Coins;
 using DrinkDispenser.Domain.Common.Errors.VendingMachines;
 using DrinkDispenser.Domain.Common.Models;
 using DrinkDispenser.Domain.Drinks;
@@ -7,16 +8,19 @@ namespace DrinkDispenser.Domain.VendingMachines;
 
 public class VendingMachine : Entity<Guid>
 {
-    public VendingMachine(IReadOnlyCollection<Drink> drinks, IReadOnlyCollection<Coin> coins)
+    private VendingMachine() { }
+
+    public VendingMachine(List<Drink> drinks, List<Coin> coins)
     {
         Drinks = drinks;
         Coins = coins;
     }
-    public IReadOnlyCollection<Drink> Drinks { get; private set; }
 
-    public IReadOnlyCollection<Coin> Coins { get; private set; }
+    public IReadOnlyCollection<Drink> Drinks {get; private set;}
 
-    public static ErrorOr<VendingMachine> Create(IReadOnlyCollection<Drink> drinks, IReadOnlyCollection<Coin> coins)
+    public IReadOnlyCollection<Coin> Coins {get; private set;}
+
+    public static ErrorOr<VendingMachine> Create(List<Drink> drinks, List<Coin> coins)
     {
         if (drinks.Count == 0)
             return Errors.DrinksCannotBeEmpty;
@@ -26,5 +30,4 @@ public class VendingMachine : Entity<Guid>
 
         return new VendingMachine(drinks, coins);
     }
-    // TODO: Add VendingMachine methods
 }

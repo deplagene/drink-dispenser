@@ -17,4 +17,9 @@ public static partial class Errors
         Error.Validation(
             code: "Drinks.PriceMustBeGreaterThanZero",
             description: "Price must be greater than zero.");
+
+    public static Error ImageUrlCannotBeEmpty =>
+        Error.Validation(
+            code: "Drinks.ImageUrlCannotBeEmpty",
+            description: "Image URL cannot be empty.");
 }
