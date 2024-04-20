@@ -9,3 +9,12 @@ D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\Drink
 D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\refint\DrinkDispenser.Infrastructure.dll
 D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.pdb
 D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\ref\DrinkDispenser.Infrastructure.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Application.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Domain.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Application.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Domain.pdb
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.csproj.AssemblyReference.cache
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.sourcelink.json
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDis.FA839559.Up2Date
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Infrastructure.runtimeconfig.json
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.genruntimeconfig.cache
