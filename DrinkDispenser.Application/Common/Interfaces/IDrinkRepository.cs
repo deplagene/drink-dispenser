@@ -9,6 +9,7 @@ public interface IDrinkRepository : IReadDrinkRepository, IWriteDrinkRepository
 
 public interface IReadDrinkRepository : IReadRepository<Drink, Guid>
 {
+    Task<IReadOnlyCollection<Drink>> GetAvailableDrinksAsync(CancellationToken cancellationToken = default);
 }
 
 public interface IWriteDrinkRepository : IWriteRepository<Drink>

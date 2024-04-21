@@ -7,4 +7,6 @@ public interface IReadRepository<TEntity, TKey>
     where TKey : IEquatable<TKey>
 {
     Task<TEntity?> GetByIdAsync(TKey id, CancellationToken cancellationToken = default);
+
+    Task<IReadOnlyCollection<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
 }
