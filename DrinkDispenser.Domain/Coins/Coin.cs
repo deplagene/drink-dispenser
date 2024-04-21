@@ -37,9 +37,27 @@ public class Coin : Entity<Guid>
         if (string.IsNullOrEmpty(currency))
             return  Errors.CurrencyMustNotBeEmpty;
 
-        if (currency != SUPPORTED_CURRENCY)
+        if (currency.ToUpper() != SUPPORTED_CURRENCY)
             return Errors.NotSupportedCurrency;
 
         return new Coin(nominal, currency);
+
+    }
+
+    public static bool IsValid(Coin coin)
+    {
+        if(!SupportedNominals.Contains(coin.Nominal))
+            return false;
+
+        if(string.IsNullOrEmpty(coin.Currency))
+            return false;
+
+        if(coin.Currency.ToUpper() != SUPPORTED_CURRENCY)
+            return false;
+
+        if(coin.Nominal <= 0)
+            return false;
+
+        return true;
     }
 }

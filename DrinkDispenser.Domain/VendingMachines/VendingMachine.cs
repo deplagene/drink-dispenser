@@ -20,7 +20,9 @@ public class VendingMachine : Entity<Guid>
 
     public IReadOnlyCollection<Coin> Coins {get; private set;}
 
-    public decimal Balance { get; private set; }
+    public decimal Balance { get; private set; } = 0;
+
+    public int CountDrinks { get; private set; }
 
     public static ErrorOr<VendingMachine> Create(List<Drink> drinks, List<Coin> coins)
     {
@@ -33,4 +35,14 @@ public class VendingMachine : Entity<Guid>
         return new VendingMachine(drinks, coins);
     }
     public decimal GetBalance() => Balance;
+
+    public void SetBalance(decimal balance) => Balance = balance;
+
+    public void UpdateBalance(int value) => Balance +=value;
+
+    public void IncreaseCountDrinks() => CountDrinks ++;
+
+    public void DecreaseCountDrinks() => CountDrinks --;
+
+    public void SetCountDrinks(int count) => CountDrinks = count;
 }

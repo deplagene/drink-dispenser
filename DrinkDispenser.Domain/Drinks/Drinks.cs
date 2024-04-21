@@ -14,6 +14,7 @@ public class Drink : Entity<Guid>
         Name = name;
         Price = price;
         ImageUrl = imageUrl;
+        IsAvailable = true;
     }
     public string Name { get; private set; } = null!;
 
@@ -21,7 +22,7 @@ public class Drink : Entity<Guid>
 
     public string ImageUrl { get; private set; }
 
-    public int Count { get; private set; } = 0;
+    public bool IsAvailable { get; private set; }
 
     public Guid VendingMachineId { get; private set; }
 
@@ -55,19 +56,5 @@ public class Drink : Entity<Guid>
     {
         ImageUrl = imageUrl;
     }
-
-    public void SetCount(int count)
-    {
-        Count = count;
-    }
-
-    public void IncreaseCount()
-    {
-        Count++;
-    }
-
-    public void DecreaseCount()
-    {
-        Count--;
-    }
+    public bool NotAvailable() => !IsAvailable;
 }
