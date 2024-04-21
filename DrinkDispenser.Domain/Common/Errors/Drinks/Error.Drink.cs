@@ -22,4 +22,14 @@ public static partial class Errors
         Error.Validation(
             code: "Drinks.ImageUrlCannotBeEmpty",
             description: "Image URL cannot be empty.");
+
+    public static Error InvalidImageUrl =>
+        Error.Validation(
+            code: "Drinks.InvalidImageUrl",
+            description: "Invalid image URL.");
+
+    public static Error NotFound =>
+        Error.NotFound(
+            code: "Drinks.NotFound",
+            description: "Drink not found.");
 }

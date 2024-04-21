@@ -20,6 +20,8 @@ public class Coin : Entity<Guid>
 
     public string Currency { get; private set; } = null!;
 
+    public bool IsBlocked { get; private set; }
+
     public VendingMachine VendingMachine { get; set; }
 
     public Guid VendingMachineId { get; private set; }

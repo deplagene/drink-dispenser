@@ -20,6 +20,8 @@ public class VendingMachine : Entity<Guid>
 
     public IReadOnlyCollection<Coin> Coins {get; private set;}
 
+    public decimal Balance { get; private set; }
+
     public static ErrorOr<VendingMachine> Create(List<Drink> drinks, List<Coin> coins)
     {
         if (drinks.Count == 0)
@@ -30,4 +32,5 @@ public class VendingMachine : Entity<Guid>
 
         return new VendingMachine(drinks, coins);
     }
+    public decimal GetBalance() => Balance;
 }

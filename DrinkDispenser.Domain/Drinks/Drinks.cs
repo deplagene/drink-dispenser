@@ -21,6 +21,8 @@ public class Drink : Entity<Guid>
 
     public string ImageUrl { get; private set; }
 
+    public int Count { get; private set; } = 0;
+
     public Guid VendingMachineId { get; private set; }
 
     public VendingMachine VendingMachine { get; private set; }
@@ -39,5 +41,33 @@ public class Drink : Entity<Guid>
         return new Drink(name, price, imageUrl);
     }
 
-    // TODO: Add more methods
+    public void SetName(string name)
+    {
+        Name = name;
+    }
+
+    public void SetPrice(decimal price)
+    {
+        Price = price;
+    }
+
+    public void SetImageUrl(string imageUrl)
+    {
+        ImageUrl = imageUrl;
+    }
+
+    public void SetCount(int count)
+    {
+        Count = count;
+    }
+
+    public void IncreaseCount()
+    {
+        Count++;
+    }
+
+    public void DecreaseCount()
+    {
+        Count--;
+    }
 }
