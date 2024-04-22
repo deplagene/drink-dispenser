@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "RIWAs67LX2jUuVsvRgcXQzFkOPL5uoi9fsPOQhYNvV4Hjsjhq3yc6F90gdjliZieG7Iz1nTvvSX0P/P53ntSHg==",
+  "dgSpecHash": "5M80S62MIhtdvnHbRNonLWYhehk/WOu3aYBgC/tBWQNfsb4aeNsRbdEbkYAaRBvY3DHhJBimxTZYWWKquCz8og==",
   "success": true,
   "projectFilePath": "D:\\projects\\drink-dispenser\\DrinkDispenser.Application\\DrinkDispenser.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Евгений\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Евгений\\.nuget\\packages\\erroror\\2.0.1\\erroror.2.0.1.nupkg.sha512",
-    "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+    "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
+    "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Евгений\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
