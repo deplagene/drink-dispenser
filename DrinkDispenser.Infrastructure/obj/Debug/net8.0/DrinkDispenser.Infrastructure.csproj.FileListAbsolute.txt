@@ -18,3 +18,5 @@ D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\Drink
 D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDis.FA839559.Up2Date
 D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Infrastructure.runtimeconfig.json
 D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\obj\Debug\net8.0\DrinkDispenser.Infrastructure.genruntimeconfig.cache
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Contracts.dll
+D:\projects\drink-dispenser\DrinkDispenser.Infrastructure\bin\Debug\net8.0\DrinkDispenser.Contracts.pdb

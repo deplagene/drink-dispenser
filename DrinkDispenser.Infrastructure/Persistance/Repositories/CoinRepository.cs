@@ -20,6 +20,14 @@ public class CoinRepository : ICoinRepository
         _dbcontext.Coins.Remove(entity);
     }
 
+    public async Task<IReadOnlyCollection<Coin>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _dbcontext
+            .Coins
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<Coin?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await _dbcontext

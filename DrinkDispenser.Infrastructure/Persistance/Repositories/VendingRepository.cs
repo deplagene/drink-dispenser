@@ -20,6 +20,14 @@ public class VendingMachineRepository : IVendingMachineRepository
         _dbContext.VendingMachines.Remove(entity);
     }
 
+    public async Task<IReadOnlyCollection<VendingMachine>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _dbContext
+            .VendingMachines
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<VendingMachine?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await _dbContext

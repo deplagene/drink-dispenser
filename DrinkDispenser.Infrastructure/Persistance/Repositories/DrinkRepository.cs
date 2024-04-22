@@ -21,6 +21,23 @@ public class DrinkRepository : IDrinkRepository
         _dbcontext.Drinks.Remove(entity);
     }
 
+    public async Task<IReadOnlyCollection<Drink>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _dbcontext
+            .Drinks
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+    }
+
+    public async Task<IReadOnlyCollection<Drink>> GetAvailableDrinksAsync(CancellationToken cancellationToken = default)
+    {
+       return await _dbcontext
+            .Drinks
+            .Where(x => x.IsAvailable == true)
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<Drink?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await _dbcontext
