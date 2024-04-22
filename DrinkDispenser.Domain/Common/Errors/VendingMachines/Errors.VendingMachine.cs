@@ -30,4 +30,8 @@ public static partial class Errors
     public static Error InsufficientFunds => Error.Validation(
         code: "VendingMachine.InsufficientFunds",
         description: "Insufficient funds.");
+
+    public static Error DrinkNotAvailable => Error.Validation(
+        code: "VendingMachine.DrinkNotAvailable",
+        description: "Drink not available.");
 }

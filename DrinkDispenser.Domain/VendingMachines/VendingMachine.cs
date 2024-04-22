@@ -8,33 +8,17 @@ namespace DrinkDispenser.Domain.VendingMachines;
 
 public class VendingMachine : Entity<Guid>
 {
-    private VendingMachine() { }
+    private readonly HashSet<Drink> drinks = [];
 
-    public VendingMachine(List<Drink> drinks, List<Coin> coins)
-    {
-        Drinks = drinks;
-        Coins = coins;
-    }
+    private readonly HashSet<Coin> coins = [];
 
-    public IReadOnlyCollection<Drink> Drinks {get; private set;}
+    public IReadOnlyCollection<Drink> Drinks => drinks;
 
-    public IReadOnlyCollection<Coin> Coins {get; private set;}
+    public IReadOnlyCollection<Coin> Coins => coins;
 
     public decimal Balance { get; private set; } = 0;
 
-    public int CountDrinks { get; private set; }
-
-    public static ErrorOr<VendingMachine> Create(List<Drink> drinks, List<Coin> coins)
-    {
-        if (drinks.Count == 0)
-            return Errors.DrinksCannotBeEmpty;
-
-        if (coins.Count == 0)
-            return Errors.CoinsCannotBeEmpty;
-
-        return new VendingMachine(drinks, coins);
-    }
-    public decimal GetBalance() => Balance;
+    public int CountDrinks { get; private set; } = 0;
 
     public void SetBalance(decimal balance) => Balance = balance;
 
@@ -45,4 +29,21 @@ public class VendingMachine : Entity<Guid>
     public void DecreaseCountDrinks() => CountDrinks --;
 
     public void SetCountDrinks(int count) => CountDrinks = count;
+
+    public void AddCoin(Coin coin) => coins.Add(coin);
+
+    public void AddDrink(Drink drink) => drinks.Add(drink);
+
+    public ErrorOr<decimal> CalculateChange(Drink drink)
+    {
+        if(drink.NotAvailable())
+            return Errors.DrinkNotAvailable;
+
+        if(drink.Price > Balance)
+            return Errors.InsufficientFunds;
+
+        var change = Balance - drink.Price;
+
+        return change;
+    }
 }
