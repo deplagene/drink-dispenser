@@ -8,6 +8,7 @@ using DrinkDispenser.Domain.Drinks;
 using DrinkDispenser.Domain.VendingMachines;
 using ErrorOr;
 using AutoMapper;
+using DrinkDispenser.Application.Services.DrinksService;
 
 namespace DrinkDispenser.Application.Services.VendingMachinesService;
 
@@ -87,6 +88,9 @@ public class VendingMachineService : IVendingMachineService
 
         if(drink is null)
             return Errors.DrinkNotFound;
+
+        if(!drink.IsAvailable)
+            return Errors.DrinkNotAvailable;
 
         var change = vendingMachine.CalculateChange(drink);
 

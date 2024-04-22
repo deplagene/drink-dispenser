@@ -30,6 +30,7 @@ public class DrinkConfiguration : IEntityTypeConfiguration<Drink>
             .HasOne(x => x.VendingMachine)
             .WithMany(x => x.Drinks)
             .HasForeignKey(x => x.VendingMachineId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Cascade)
+            .IsRequired(false);
     }
 }

@@ -1,4 +1,3 @@
-using DrinkDispenser.Domain.Coins;
 using ErrorOr;
 
 namespace DrinkDispenser.Application.Services.CoinsService;

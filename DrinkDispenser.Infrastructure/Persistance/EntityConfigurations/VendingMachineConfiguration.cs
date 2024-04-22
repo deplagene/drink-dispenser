@@ -18,12 +18,14 @@ public class VendingMachineConfiguration : IEntityTypeConfiguration<VendingMachi
             .HasMany(x => x.Drinks)
             .WithOne(x => x.VendingMachine)
             .HasForeignKey(x => x.VendingMachineId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Cascade)
+            .IsRequired(false);
 
         builder
             .HasMany(x => x.Coins)
             .WithOne(x => x.VendingMachine)
             .HasForeignKey(x => x.VendingMachineId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Cascade)
+            .IsRequired(false);
     }
 }

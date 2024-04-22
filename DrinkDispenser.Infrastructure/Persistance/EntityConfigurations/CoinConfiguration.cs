@@ -27,6 +27,7 @@ public class CoinConfiguration : IEntityTypeConfiguration<Coin>
             .HasOne(x => x.VendingMachine)
             .WithMany(x => x.Coins)
             .HasForeignKey(x => x.VendingMachineId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Cascade)
+            .IsRequired(false);
     }
 }

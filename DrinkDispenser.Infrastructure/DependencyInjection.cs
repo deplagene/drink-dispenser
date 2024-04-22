@@ -16,7 +16,7 @@ public static class DependencyInjection
     {
         services
             .AddDbContext<ApplicationDbContext>(options => options
-                .UseNpgsql(configuration.GetConnectionString("ConnectionStrings:Database"), b => b.MigrationsAssembly("DrinkDispenser.Infrastructure")));
+                .UseNpgsql(configuration.GetConnectionString("Database"), b => b.MigrationsAssembly("DrinkDispenser.Infrastructure")));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IDrinkRepository, DrinkRepository>();
