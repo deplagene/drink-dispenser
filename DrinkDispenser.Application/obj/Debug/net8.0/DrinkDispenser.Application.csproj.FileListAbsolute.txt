@@ -14,3 +14,5 @@ D:\projects\drink-dispenser\DrinkDispenser.Application\bin\Debug\net8.0\DrinkDis
 D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.csproj.AssemblyReference.cache
 D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDispenser.Application.sourcelink.json
 D:\projects\drink-dispenser\DrinkDispenser.Application\obj\Debug\net8.0\DrinkDis.5C0AF3BD.Up2Date
+D:\projects\drink-dispenser\DrinkDispenser.Application\bin\Debug\net8.0\DrinkDispenser.Contracts.dll
+D:\projects\drink-dispenser\DrinkDispenser.Application\bin\Debug\net8.0\DrinkDispenser.Contracts.pdb

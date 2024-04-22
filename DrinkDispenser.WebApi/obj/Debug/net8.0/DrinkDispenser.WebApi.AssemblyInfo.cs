@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrinkDispenser.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6f21706aa184e78cf02a74cdfa7b61283087859")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df771f993d6b5e678f81550ae8efe8bb13b45183")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrinkDispenser.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrinkDispenser.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
