@@ -34,4 +34,8 @@ public static partial class Errors
     public static Error DrinkNotAvailable => Error.Validation(
         code: "VendingMachine.DrinkNotAvailable",
         description: "Drink not available.");
+
+    public static Error CoinNotFound => Error.NotFound(
+        code: "VendingMachine.CoinNotFound",
+        description: "Coin not found.");
 }

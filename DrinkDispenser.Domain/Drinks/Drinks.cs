@@ -9,12 +9,13 @@ public class Drink : Entity<Guid>
 {
     private Drink() { }
 
-    private Drink(string name, decimal price, string imageUrl)
+    private Drink(string name, decimal price, string imageUrl, Guid vendingMachineId)
     {
         Name = name;
         Price = price;
         ImageUrl = imageUrl;
         IsAvailable = true;
+        VendingMachineId = vendingMachineId;
     }
     public string Name { get; private set; } = null!;
 
@@ -28,7 +29,7 @@ public class Drink : Entity<Guid>
 
     public VendingMachine VendingMachine { get; private set; }
 
-    public static ErrorOr<Drink> Create(string name, decimal price, string imageUrl)
+    public static ErrorOr<Drink> Create(string name, decimal price, string imageUrl, Guid vendingMachineId)
     {
         if (string.IsNullOrEmpty(name))
             return Errors.NameCannotBeEmpty;
@@ -39,7 +40,13 @@ public class Drink : Entity<Guid>
         if(string.IsNullOrEmpty(imageUrl))
             return Errors.ImageUrlCannotBeEmpty;
 
-        return new Drink(name, price, imageUrl);
+        if(!Uri.TryCreate(imageUrl, UriKind.Absolute, out var uri))
+            return Errors.InvalidImageUrl;
+
+        if(Guid.Empty == vendingMachineId)
+            return Errors.VendingMachineIdCannotBeEmpty;
+
+        return new Drink(name, price, imageUrl, vendingMachineId);
     }
 
     public void SetName(string name)
@@ -57,4 +64,9 @@ public class Drink : Entity<Guid>
         ImageUrl = imageUrl;
     }
     public bool NotAvailable() => !IsAvailable;
+
+    public void SetAvailability(bool isAvailable)
+    {
+        IsAvailable = isAvailable;
+    }
 }

@@ -32,4 +32,24 @@ public static partial class Errors
         Error.NotFound(
             code: "Drinks.NotFound",
             description: "Drink not found.");
+
+    public static Error DrinksNotFound =>
+        Error.NotFound(
+            code: "Drinks.NotFound",
+            description: "Drinks not found.");
+
+    public static Error VendingMachineIdCannotBeEmpty =>
+        Error.Validation(
+            code: "Drinks.VendingMachineIdCannotBeEmpty",
+            description: "Vending machine ID cannot be empty.");
+
+    public static Error AvailabilityCannotBeEmpty =>
+        Error.Validation(
+            code: "Drinks.AvailabilityCannotBeEmpty",
+            description: "Availability cannot be empty.");
+
+    public static Error VendingMachineNotFound =>
+        Error.NotFound(
+            code: "Drinks.VendingMachineNotFound",
+            description: "Vending machine not found.");
 }

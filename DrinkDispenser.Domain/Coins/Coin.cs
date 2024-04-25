@@ -11,10 +11,12 @@ public class Coin : Entity<Guid>
 
     private static readonly IReadOnlyCollection<int> SupportedNominals = [1, 2, 5, 10];
 
-    private Coin(int nominal, string currency)
+    private Coin(int nominal, string currency, Guid vendingMachineId)
     {
         Nominal = nominal;
         Currency = currency;
+        VendingMachineId = vendingMachineId;
+        IsBlocked = false;
     }
     public int Nominal { get; private set; }
 
@@ -26,7 +28,7 @@ public class Coin : Entity<Guid>
 
     public Guid VendingMachineId { get; private set; }
 
-    public static ErrorOr<Coin> Create(int nominal, string currency)
+    public static ErrorOr<Coin> Create(int nominal, string currency, Guid vendingMachineId)
     {
         if (nominal <= 0)
             return Errors.NominalMustBeGreaterThanZero;
@@ -40,24 +42,12 @@ public class Coin : Entity<Guid>
         if (currency.ToUpper() != SUPPORTED_CURRENCY)
             return Errors.NotSupportedCurrency;
 
-        return new Coin(nominal, currency);
+        if (Guid.Empty == vendingMachineId)
+            return Errors.VendingMachineIdCannotBeEmpty;
+
+        return new Coin(nominal, currency, vendingMachineId);
 
     }
 
-    public static bool IsValid(Coin coin)
-    {
-        if(!SupportedNominals.Contains(coin.Nominal))
-            return false;
-
-        if(string.IsNullOrEmpty(coin.Currency))
-            return false;
-
-        if(coin.Currency.ToUpper() != SUPPORTED_CURRENCY)
-            return false;
-
-        if(coin.Nominal <= 0)
-            return false;
-
-        return true;
-    }
+    public void Block() => IsBlocked = true;
 }

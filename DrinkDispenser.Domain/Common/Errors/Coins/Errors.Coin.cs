@@ -1,9 +1,14 @@
+using DrinkDispenser.Domain.Coins;
 using ErrorOr;
 
 namespace DrinkDispenser.Domain.Common.Errors.Coins;
 
 public static partial class Errors
 {
+    public static Error VendingMachineIdCannotBeEmpty => Error.Validation(
+        code: "Coin:VendingMachineIdCannotBeEmpty",
+        description: "Vending machine id cannot be empty");
+
     public static Error NominalMustBeGreaterThanZero => Error.Validation(
         code: "Coin:NominalMustBeGreaterThanZero",
         description: "Nominal must be greater than zero");
