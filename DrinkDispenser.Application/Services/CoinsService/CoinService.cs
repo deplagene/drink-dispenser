@@ -16,14 +16,16 @@ public class CoinService : ICoinService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<ErrorOr<Created>> CreateCoin(int nominal, string currency, CancellationToken cancellationToken = default)
+    public async Task<ErrorOr<Created>> CreateCoin(int nominal, string currency, Guid vendingMachineId, CancellationToken cancellationToken = default)
     {
-        var coin = Coin.Create(nominal, currency);
+        var coin = Coin.Create(nominal, currency, vendingMachineId);
 
         await _coinRepository.AddAsync(coin.Value, cancellationToken);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return Result.Created;
+
+        //todo: fix coin creation
     }
 }

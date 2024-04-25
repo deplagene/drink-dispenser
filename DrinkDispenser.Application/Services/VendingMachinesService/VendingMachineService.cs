@@ -8,7 +8,6 @@ using DrinkDispenser.Domain.Drinks;
 using DrinkDispenser.Domain.VendingMachines;
 using ErrorOr;
 using AutoMapper;
-using DrinkDispenser.Application.Services.DrinksService;
 
 namespace DrinkDispenser.Application.Services.VendingMachinesService;
 
@@ -16,6 +15,7 @@ public class VendingMachineService : IVendingMachineService
 {
     private readonly IVendingMachineRepository _vendingMachineRepository;
     private readonly IDrinkRepository _drinkRepository;
+    private readonly ICoinRepository _coinRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
@@ -23,29 +23,32 @@ public class VendingMachineService : IVendingMachineService
         IVendingMachineRepository vendingMachineRepository,
         IUnitOfWork unitOfWork,
         IDrinkRepository drinkRepository,
-        IMapper mapper)
+        IMapper mapper,
+        ICoinRepository coinRepository)
     {
         _vendingMachineRepository = vendingMachineRepository;
         _unitOfWork = unitOfWork;
         _drinkRepository = drinkRepository;
         _mapper = mapper;
+        _coinRepository = coinRepository;
     }
 
-    public async Task<ErrorOr<Success>> AddCoinToVendingMachine(Guid vendingMachineId, Coin coin, CancellationToken cancellationToken = default)
+    public async Task<ErrorOr<Success>> AddCoinToVendingMachine(
+        Guid vendingMachineId,
+        int nominal,
+        string currency,
+        CancellationToken cancellationToken = default)
     {
         var vendingMachine = await _vendingMachineRepository.GetByIdAsync(vendingMachineId, cancellationToken);
 
         if(vendingMachine is null)
             return Errors.VendingMachineNotFound;
 
-        var validateCoin = Coin.IsValid(coin);
+        var coin = Coin.Create(nominal, currency, vendingMachineId);
 
-        if(!validateCoin)
-            return Errors.InvalidCoin;
+        vendingMachine.AddCoin(coin.Value);
 
-        vendingMachine.AddCoin(coin);
-
-        vendingMachine.UpdateBalance(coin.Nominal);
+        vendingMachine.UpdateBalance(coin.Value.Nominal);
 
         _vendingMachineRepository.Update(vendingMachine);
 
@@ -54,21 +57,23 @@ public class VendingMachineService : IVendingMachineService
         return Result.Success;
     }
 
-    public async Task<ErrorOr<Success>> AddDrinkToVendingMachine(Guid vendingMachineId, Guid drinkId, CancellationToken cancellationToken = default)
+    public async Task<ErrorOr<Success>> AddDrinkToVendingMachine(
+        Guid vendingMachineId,
+        string name,
+        decimal price,
+        string imageUrl,
+        CancellationToken cancellationToken = default)
     {
         var vendingMachine = await _vendingMachineRepository.GetByIdAsync(vendingMachineId, cancellationToken);
 
         if(vendingMachine is null)
             return Errors.VendingMachineNotFound;
 
-        var drink = await _drinkRepository.GetByIdAsync(drinkId, cancellationToken);
-
-        if(drink is null)
-            return Errors.DrinkNotFound;
+        var drink = Drink.Create(name, price, imageUrl, vendingMachineId);
 
         vendingMachine.IncreaseCountDrinks();
 
-        vendingMachine.AddDrink(drink);
+        vendingMachine.AddDrink(drink.Value);
 
         _vendingMachineRepository.Update(vendingMachine);
 
@@ -77,7 +82,10 @@ public class VendingMachineService : IVendingMachineService
         return Result.Success;
     }
 
-    public async Task<ErrorOr<DrinkResponse>> BuyDrink(Guid vendingMachineId, Guid drinkId, CancellationToken cancellationToken = default)
+    public async Task<ErrorOr<DrinkResponse>> BuyDrink(
+        Guid vendingMachineId,
+        Guid drinkId,
+        CancellationToken cancellationToken = default)
     {
         var vendingMachine = await _vendingMachineRepository.GetByIdAsync(vendingMachineId, cancellationToken);
 
@@ -99,6 +107,8 @@ public class VendingMachineService : IVendingMachineService
         vendingMachine.DecreaseCountDrinks();
 
         _vendingMachineRepository.Update(vendingMachine);
+
+        _drinkRepository.Delete(drink);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 

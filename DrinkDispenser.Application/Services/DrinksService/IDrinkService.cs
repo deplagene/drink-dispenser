@@ -6,7 +6,7 @@ namespace DrinkDispenser.Application.Services.DrinksService;
 
 public interface IDrinkService
 {
-    Task<ErrorOr<Created>> CreateDrink(string name, decimal price, string imageUrl, CancellationToken cancellationToken = default!);
+    Task<ErrorOr<Created>> CreateDrink(string name, decimal price, string imageUrl, Guid vendingMachineId, CancellationToken cancellationToken = default!);
 
     Task<ErrorOr<Deleted>> DeleteDrink(Guid drinkId, CancellationToken cancellationToken = default!);
 
@@ -17,4 +17,6 @@ public interface IDrinkService
     Task<ErrorOr<DrinkResponse>> GetDrinkById(Guid drinkId, CancellationToken cancellationToken = default!);
 
     Task<ErrorOr<List<DrinkResponse>>> GetAvailableDrinks(CancellationToken cancellationToken = default!);
+
+    Task<ErrorOr<Updated>> UpdateDrinkAvailability(Guid drinkId, bool? isAvailable, CancellationToken cancellationToken = default!);
 }
