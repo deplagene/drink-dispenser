@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eLK//uQx/AcY2AJGQDRLpGwy20LHa4+CChJyt+DmnyEyRADKqnV+jx/Ad30rN6gcI1x3c0hDFStjZapRMwUEzA==",
+  "dgSpecHash": "40JoapoQoyhnLSpYpCEHQyvoqtmh519EHFWZXNB5GyrIB2V3tHbcjRPrEjR93g1HUtcMneCriSprANUJ8xACYw==",
   "success": true,
   "projectFilePath": "D:\\projects\\drink-dispenser\\DrinkDispenser.WebApi\\DrinkDispenser.WebApi.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.4\\microsoft.entityframeworkcore.8.0.4.nupkg.sha512",
     "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.4\\microsoft.entityframeworkcore.abstractions.8.0.4.nupkg.sha512",
     "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.4\\microsoft.entityframeworkcore.analyzers.8.0.4.nupkg.sha512",
-    "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.2\\microsoft.entityframeworkcore.relational.8.0.2.nupkg.sha512",
+    "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.4\\microsoft.entityframeworkcore.relational.8.0.4.nupkg.sha512",
     "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Евгений\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
