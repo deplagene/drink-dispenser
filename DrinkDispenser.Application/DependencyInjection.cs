@@ -1,5 +1,6 @@
 using DrinkDispenser.Application.Services.CoinsService;
 using DrinkDispenser.Application.Services.DrinksService;
+using DrinkDispenser.Application.Services.UsersService;
 using DrinkDispenser.Application.Services.VendingMachinesService;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +13,7 @@ public static class DependencyInjection
         services.AddScoped<IDrinkService, DrinkService>();
         services.AddScoped<IVendingMachineService, VendingMachineService>();
         services.AddScoped<ICoinService, CoinService>();
+        services.AddScoped<IUserService, UsersService>();
         return services;
     }
 }

@@ -1,5 +1,6 @@
 using DrinkDispenser.Domain.Coins;
 using DrinkDispenser.Domain.Drinks;
+using DrinkDispenser.Domain.User;
 using DrinkDispenser.Domain.VendingMachines;
 using DrinkDispenser.Infrastructure.Persistance.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +21,15 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Coin> Coins { get; set; }
 
+    public DbSet<User> Users { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new DrinkConfiguration());
         modelBuilder.ApplyConfiguration(new VendingMachineConfiguration());
         modelBuilder.ApplyConfiguration(new CoinConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
     }
 }
 

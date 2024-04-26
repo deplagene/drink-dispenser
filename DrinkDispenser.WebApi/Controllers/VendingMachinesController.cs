@@ -2,6 +2,7 @@ using DrinkDispenser.Application.Services.VendingMachinesService;
 using DrinkDispenser.Contracts.Coins;
 using DrinkDispenser.Contracts.Drinks;
 using DrinkDispenser.Domain.Coins;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkDispenser.WebApi.Controllers;
@@ -18,6 +19,7 @@ public class VendingMachinesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateVendingMachine( CancellationToken cancellationToken)
     {
         var vendingMachine = await _vendingMachineService.CreateVendingMachine(cancellationToken);
@@ -25,6 +27,7 @@ public class VendingMachinesController : ControllerBase
     }
 
     [HttpPost("{vendingMachineId}/coins")]
+    [Authorize(Roles = "User")]
     public async Task<IActionResult> AddCoinToVendingMachine(Guid vendingMachineId, [FromBody]CoinRequest request, CancellationToken cancellationToken)
     {
         var vendingMachine = await _vendingMachineService.AddCoinToVendingMachine(vendingMachineId, request.Nominal, request.Currency, cancellationToken);
@@ -32,6 +35,7 @@ public class VendingMachinesController : ControllerBase
     }
 
     [HttpPost("{vendingMachineId}/drinks")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> AddDrinkToVendingMachine(
         Guid vendingMachineId,
         [FromBody] DrinkRequest request,
@@ -48,6 +52,7 @@ public class VendingMachinesController : ControllerBase
     }
 
     [HttpPost("{vendingMachineId}/drinks/{drinkId}")]
+    [Authorize(Roles = "User")]
     public async Task<IActionResult> BuyDrink(Guid vendingMachineId, Guid drinkId, CancellationToken cancellationToken)
     {
         var vendingMachine = await _vendingMachineService.BuyDrink(vendingMachineId, drinkId, cancellationToken);

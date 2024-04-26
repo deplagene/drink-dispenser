@@ -2,6 +2,7 @@ using AutoMapper;
 using DrinkDispenser.Application.Services.DrinksService;
 using DrinkDispenser.Contracts.Drinks;
 using DrinkDispenser.Contracts.Drinks.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkDispenser.WebApi.Controllers;
@@ -20,6 +21,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateDrink([FromBody] DrinkRequest request, CancellationToken cancellationToken)
     {
         var drink = await _drinkService.CreateDrink(request.Name, request.Price, request.ImageUrl, request.VendingMachineId, cancellationToken);
@@ -31,6 +33,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> GetDrinks(CancellationToken cancellationToken)
     {
         var drinks = await _drinkService.GetAllDrinks(cancellationToken);
@@ -65,6 +68,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteDrink(Guid id, CancellationToken cancellationToken)
     {
         var drink = await _drinkService.DeleteDrink(id, cancellationToken);
@@ -76,6 +80,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpPatch("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateDrink(Guid DrinkId,[FromBody] DrinkPatchRequest request, CancellationToken cancellationToken)
     {
         var drink = await _drinkService.UpdateDrink(DrinkId, request.Name, request.Price, request.ImageUrl, cancellationToken);
@@ -87,6 +92,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpPatch("{id}/availability")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateDrinkAvailability(Guid drinkId, [FromBody] bool? isAvailable, CancellationToken cancellationToken)
     {
         var drink = await _drinkService.UpdateDrinkAvailability(drinkId, isAvailable, cancellationToken);

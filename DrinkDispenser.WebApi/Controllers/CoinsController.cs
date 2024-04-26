@@ -1,5 +1,6 @@
 using DrinkDispenser.Application.Services.CoinsService;
 using DrinkDispenser.Contracts.Coins;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkDispenser.WebApi.Controllers;
@@ -16,6 +17,7 @@ public class CoinsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateCoin([FromBody] CoinRequestWithId request, CancellationToken cancellationToken)
     {
         var coin = await _coinService.CreateCoin(request.Nominal, request.Currency, request.Id, cancellationToken);

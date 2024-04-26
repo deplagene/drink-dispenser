@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrinkDispenser.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ccb5f5ef71268baa4fb989cc2ba99626e3172912")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+873c8883563856be14388dd164b6ad326e118239")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrinkDispenser.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrinkDispenser.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

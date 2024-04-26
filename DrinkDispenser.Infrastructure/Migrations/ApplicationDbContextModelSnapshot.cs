@@ -78,6 +78,32 @@ namespace DrinkDispenser.Infrastructure.Migrations
                     b.ToTable("Drinks");
                 });
 
+            modelBuilder.Entity("DrinkDispenser.Domain.User.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Roles")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("DrinkDispenser.Domain.VendingMachines.VendingMachine", b =>
                 {
                     b.Property<Guid>("Id")

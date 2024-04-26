@@ -48,3 +48,12 @@ D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\DrinkDispense
 D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\DrinkDispenser.Infrastructure.pdb
 D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\DrinkDispenser.Domain.pdb
 D:\projects\drink-dispenser\DrinkDispenser.WebApi\obj\Debug\net8.0\DrinkDispenser.WebApi.sourcelink.json
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\projects\drink-dispenser\DrinkDispenser.WebApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
