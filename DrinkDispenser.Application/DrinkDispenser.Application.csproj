@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DrinkDispenser.Domain\DrinkDispenser.Domain.csproj" />
+    <ProjectReference Include="..\DrinkDispenser.Contracts\DrinkDispenser.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
   </ItemGroup>
 
   <PropertyGroup>

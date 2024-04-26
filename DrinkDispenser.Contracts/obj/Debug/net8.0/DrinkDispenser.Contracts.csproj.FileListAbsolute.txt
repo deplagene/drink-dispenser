@@ -9,3 +9,4 @@ D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispe
 D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\refint\DrinkDispenser.Contracts.dll
 D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.pdb
 D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\ref\DrinkDispenser.Contracts.dll
+D:\projects\drink-dispenser\DrinkDispenser.Contracts\obj\Debug\net8.0\DrinkDispenser.Contracts.sourcelink.json

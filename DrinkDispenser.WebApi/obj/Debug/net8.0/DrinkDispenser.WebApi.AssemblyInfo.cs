@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("6e8ec38f-e155-4659-ba44-b47261f527cd")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrinkDispenser.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+873c8883563856be14388dd164b6ad326e118239")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrinkDispenser.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrinkDispenser.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
