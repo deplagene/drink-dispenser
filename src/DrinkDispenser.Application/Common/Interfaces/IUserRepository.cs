@@ -4,15 +4,15 @@ using ErrorOr;
 
 namespace DrinkDispenser.Application.Common.Interfaces;
 
-public interface IUserRepository : IUserWriteRepository, IUserReadRepository
+public interface IUserRepository : IWriteUserRepository, IReadUserRepository
 {
 }
 
-public interface IUserWriteRepository : IWriteRepository<User>
+public interface IWriteUserRepository : IWriteRepository<User>
 {
 }
 
-public interface IUserReadRepository : IReadRepository<User, Guid>
+public interface IReadUserRepository : IReadRepository<User, Guid>
 {
     Task<bool> IsEmailUnique(string email, CancellationToken cancellationToken = default!);
 
