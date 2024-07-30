@@ -13,6 +13,8 @@ public class Coin : Entity<Guid>
 
     public Nominal Nominal { get; private set; } = null!;
 
+    public VendingMachine? VendingMachine { get; private set; } = null!;
+
     public static Coin Create(int nominal)
     {
         return new Coin(Nominal.Create(nominal).Value);

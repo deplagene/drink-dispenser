@@ -1,0 +1,18 @@
+@Base_URL = http://localhost:5042
+@drinkId = d2b9dafd-f81b-4228-99dc-34ec9a03185c
+
+POST {{Base_URL}}/api/Drinks
+Content-Type: application/json
+
+{
+    "name": "Coca Cola",
+    "price": 15
+}
+
+###
+
+GET {{Base_URL}}/api/Drinks/{{drinkId}}
+
+###
+
+DELETE {{Base_URL}}/api/Drinks/{{drinkId}}

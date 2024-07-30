@@ -17,7 +17,10 @@ public class Drink : Entity<Guid>
     public Price Price { get; private set; } = null!;
     public bool IsAvailable { get; private set; }
 
-    public static Drink Create(string name, decimal price) => new Drink(name, Price.Create(price).Value);
+    public VendingMachine? VendingMachine { get; private set; } = null!;
+
+    public static Drink Create(string name, decimal price) =>
+         new Drink(name, Price.Create(price).Value);
 
     public void SetName(string value) => Name = value;
 
