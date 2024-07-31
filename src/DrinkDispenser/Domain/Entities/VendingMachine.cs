@@ -4,15 +4,26 @@ namespace DrinkDispenser.Domain.Entities;
 
 public class VendingMachine : Entity<Guid>
 {
+    private VendingMachine() { }
+
+    private VendingMachine(string model) => Model = model;
+
     private readonly HashSet<Drink> _drinks = [];
     private readonly HashSet<Coin> _coins = [];
 
     public IReadOnlyCollection<Drink> Drinks => _drinks;
     public IReadOnlyCollection<Coin> Coins => _coins;
-    public decimal Balance { get; private set; }
-    public int AvailableDrinks { get; private set; }
+    public decimal? Balance { get; private set; }
+    public int CountOfAvailableDrinks { get; private set; }
 
-    public static VendingMachine Create() => new VendingMachine();
+    public string Model { get; private set; } = null!;
+
+    public static VendingMachine Create(string model)
+    {
+        return string.IsNullOrWhiteSpace(model)
+            ? throw new ArgumentNullException(nameof(model), "Model can't be null")
+            : new VendingMachine(model);
+    }
 
     public void AddCoin(Coin coin)
     {
@@ -23,13 +34,13 @@ public class VendingMachine : Entity<Guid>
     public void AddDrink(Drink drink)
     {
         _drinks.Add(drink);
-        AvailableDrinks = _drinks.Count;
+        CountOfAvailableDrinks = _drinks.Count;
     }
 
     public void BuyDrink(Drink drink)
     {
         _drinks.Remove(drink);
         Balance -= drink.Price.Value;
-        AvailableDrinks = _drinks.Count;
+        CountOfAvailableDrinks = _drinks.Count;
     }
 }

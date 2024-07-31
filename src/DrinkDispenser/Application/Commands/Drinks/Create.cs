@@ -19,7 +19,7 @@ public class Create
                 .WithMessage("Имя не может быть пустым");
 
             RuleFor(x => x.Price)
-                .LessThanOrEqualTo(0)
+                .GreaterThan(0)
                 .WithMessage("Цена должна быть больше нуля");
         }
     }

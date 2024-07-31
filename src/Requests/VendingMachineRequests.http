@@ -1,0 +1,16 @@
+@Base_URL = http://localhost:5042
+@vendingMachine_Id = c74fadb5-acda-4a1c-a67e-229f210aceae
+POST {{Base_URL}}/api/VendingMachines
+Content-Type: application/json
+
+{
+    "model": "Z23"
+}
+
+###
+
+GET {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}
+
+###
+
+DELETE {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}

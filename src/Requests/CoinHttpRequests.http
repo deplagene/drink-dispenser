@@ -1,0 +1,16 @@
+@Base_URL = http://localhost:5042
+@coin_Id = 5c364a41-1f7d-4c82-b0c7-8f3e43532735
+POST {{Base_URL}}/api/Coins
+Content-Type: application/json
+
+{
+    "nominal": "5"
+}
+
+###
+
+GET {{Base_URL}}/api/Coins/{{coin_Id}}
+
+###
+
+DELETE {{Base_URL}}/api/Coins/{{coin_Id}}

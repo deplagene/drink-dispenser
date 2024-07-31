@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
     // configure services(Dependency Injection)
 
     builder.Services
+        .AddProblemDetails()
         .AddControllers();
 
     builder.Services
@@ -18,6 +19,8 @@ var builder = WebApplication.CreateBuilder(args);
         .AddAutoMapper(opt =>
         {
             opt.AddProfile<DrinksProfile>();
+            opt.AddProfile<VendingMachinesProfile>();
+            opt.AddProfile<CoinsProfile>();
         });
 
 }

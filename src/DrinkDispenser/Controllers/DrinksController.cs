@@ -15,6 +15,8 @@ public class DrinksController(
     IMapper mapper) : ControllerBase
 {
     [HttpPost(Name = "create-drink")]
+    [ProducesResponseType(typeof(DrinkDto), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<DrinkDto>> Create(
         [FromBody] Create.Request request,
         CancellationToken cancellationToken = default) =>
@@ -26,6 +28,9 @@ public class DrinksController(
                 drink));
 
     [HttpDelete("{id:guid}", Name = "delete-drink")]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<Guid>> Delete(
         [FromRoute]Delete.Request request,
         CancellationToken cancellationToken = default) =>
@@ -33,6 +38,9 @@ public class DrinksController(
             .ThenAsync(_ => Ok(request.Id));
 
     [HttpGet("{id:guid}", Name = "get-drink")]
+    [ProducesResponseType(typeof(DrinkDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<DrinkDto>> Get(
         [FromRoute] Get.Query query,
         CancellationToken cancellationToken = default) =>
