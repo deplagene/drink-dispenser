@@ -22,7 +22,9 @@ public class DatabaseContext : DbContext
             coin.ComplexProperty(x => x.Nominal);
 
             coin.HasOne(x => x.VendingMachine)
-                .WithMany(x => x.Coins);
+                .WithMany(x => x.Coins)
+                .HasForeignKey(x => x.VendingMachineId)
+                .OnDelete(DeleteBehavior.SetNull);
         });
 
         modelBuilder.Entity<Drink>(drink =>
@@ -32,7 +34,9 @@ public class DatabaseContext : DbContext
             drink.ComplexProperty(x => x.Price);
 
             drink.HasOne(x => x.VendingMachine)
-                .WithMany(x => x.Drinks);
+                .WithMany(x => x.Drinks)
+                .HasForeignKey(x => x.VendingMachineId)
+                .OnDelete(DeleteBehavior.SetNull);
         });
 
         modelBuilder.Entity<VendingMachine>(vendingMachine =>
@@ -40,10 +44,12 @@ public class DatabaseContext : DbContext
             vendingMachine.HasKey(x => x.Id);
 
             vendingMachine.HasMany(v => v.Coins)
-                .WithOne(c => c.VendingMachine);
+                .WithOne(c => c.VendingMachine)
+                .HasForeignKey(x => x.VendingMachineId);
 
             vendingMachine.HasMany(v => v.Drinks)
-                .WithOne(d => d.VendingMachine);
+                .WithOne(d => d.VendingMachine)
+                .HasForeignKey(x => x.VendingMachineId);
         });
 
         base.OnModelCreating(modelBuilder);

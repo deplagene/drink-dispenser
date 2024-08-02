@@ -8,9 +8,26 @@ namespace DrinkDispenser.Application.Services;
 public class VendingMachinesService(
     IVendingMachineRepository vendingMachineRepository,
     IDrinkRepository drinkRepository,
+    ICoinRepository coinRepository,
     IUnitOfWork unitOfWork) : IVendingMachinesService
 {
-    public async Task<Drink> AddDrink(Guid vendingMachineId, Guid drinkId, CancellationToken cancellationToken = default)
+    public async Task<VendingMachine> AddCoin(Guid vendingMachineId, Guid coinId, CancellationToken cancellationToken = default)
+    {
+        var vendingMachine = await vendingMachineRepository
+            .GetByIdAsync(vendingMachineId, cancellationToken);
+
+        var coin = await coinRepository
+            .GetByIdAsync(coinId, cancellationToken);
+
+        vendingMachine.AddCoin(coin);
+
+        await unitOfWork
+            .SaveChangesAsync(cancellationToken);
+
+        return vendingMachine;
+    }
+
+    public async Task<VendingMachine> AddDrink(Guid vendingMachineId, Guid drinkId, CancellationToken cancellationToken = default)
     {
         var vendingMachine = await vendingMachineRepository
             .GetByIdAsync(vendingMachineId, cancellationToken);
@@ -23,7 +40,7 @@ public class VendingMachinesService(
         await unitOfWork
             .SaveChangesAsync(cancellationToken);
 
-        return drink;
+        return vendingMachine;
     }
 
     public async Task<Drink> BuyDrink(Guid vendingMachineId, Guid drinkId, CancellationToken cancellationToken = default)

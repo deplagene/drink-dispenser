@@ -13,7 +13,6 @@ public class VendingMachineRepository(DatabaseContext context) : RepositoryBase<
 
     public async Task<VendingMachine> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
         await Set
-            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
             ?? throw new NotFoundException("Автомат не найден.");
 

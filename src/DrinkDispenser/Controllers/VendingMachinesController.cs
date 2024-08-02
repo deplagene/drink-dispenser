@@ -4,13 +4,11 @@ using DrinkDispenser.Application.Common.Interfaces;
 using DrinkDispenser.Application.Extensions;
 using DrinkDispenser.Application.Queries.VendingMachines;
 using DrinkDispenser.Shared.Dtos;
+using DrinkDispenser.Shared.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkDispenser.Controllers;
-
-
-// TODO: Refactor this controller
 
 [ApiController]
 [Route("api/[controller]")]
@@ -55,13 +53,13 @@ public class VendingMachinesController(
             .ThenAsync(_ => Ok(request.Id));
 
     [HttpPost("{id:guid}/drinks", Name = "add-drink-to-vendingMachine")]
-    [ProducesResponseType(typeof(DrinkDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(VendingMachineDto), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-    public async Task<DrinkDto> AddDrink([FromRoute]Guid id, [FromBody]Guid drinkId, CancellationToken cancellationToken = default) =>
+    public async Task<VendingMachineDto> AddDrink([FromRoute]Guid id, [FromBody]AddDrinkRequest request, CancellationToken cancellationToken = default) =>
         await vendingMachinesService
-            .AddDrink(id, drinkId, cancellationToken)
-            .ThenAsync(mapper.Map<DrinkDto>);
+            .AddDrink(id, request.DrinkId, cancellationToken)
+            .ThenAsync(mapper.Map<VendingMachineDto>);
 
 
     [HttpGet("{id:guid}/drinks/{drinkId:guid}", Name = "buy-drink")]
@@ -72,4 +70,16 @@ public class VendingMachinesController(
         await vendingMachinesService
             .BuyDrink(id, drinkId, cancellationToken)
             .ThenAsync(mapper.Map<DrinkDto>);
+
+    [HttpPost("{id:guid}/coins", Name = "add-coin-to-vendingMachine")]
+    [ProducesResponseType(typeof(VendingMachineDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    public async Task<VendingMachineDto> AddCoin([FromRoute]Guid id, [FromBody] AddCoinRequest request, CancellationToken cancellationToken = default) =>
+        await vendingMachinesService
+            .AddCoin(
+                vendingMachineId: id,
+                coinId: request.CoinId,
+                cancellationToken)
+            .ThenAsync(mapper.Map<VendingMachineDto>);
 }

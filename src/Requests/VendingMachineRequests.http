@@ -1,11 +1,11 @@
 @Base_URL = http://localhost:5042
-@vendingMachine_Id = 3d876e49-fe64-406f-8320-0713c1f4224a
-@drink_Id = eff0d43c-b949-4159-a8f5-a086020ca4ad
+@vendingMachine_Id = 7bda4455-1100-47d0-95b2-d69b93eed766
+@drink_Id = E2F11CF4-D660-4284-A60A-963C808E8373
 POST {{Base_URL}}/api/VendingMachines
 Content-Type: application/json
 
 {
-    "model": "W232"
+    "model": "Z432"
 }
 
 ###
@@ -22,9 +22,18 @@ POST  {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}/drinks
 Content-Type: application/json
 
 {
-    "drinkId": "eff0d43c-b949-4159-a8f5-a086020ca4ad"
+    "drinkId": "E2F11CF4-D660-4284-A60A-963C808E8373"
 }
 
 ###
 
 GET  {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}/drinks/{{drink_Id}}
+
+###
+
+POST {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}/coins
+Content-Type: application/json
+
+{
+    "coinId": "0692EFC9-DDF3-4728-B320-D34E7FE3EFC8"
+}

@@ -13,7 +13,9 @@ public class Coin : Entity<Guid>
 
     public Nominal Nominal { get; private set; } = null!;
 
-    public VendingMachine? VendingMachine { get; private set; } = null!;
+    public VendingMachine VendingMachine { get; private set; } = null!;
+
+    public Guid? VendingMachineId { get; private set; }
 
     public static Coin Create(int nominal)
     {

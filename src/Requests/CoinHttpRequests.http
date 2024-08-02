@@ -4,7 +4,7 @@ POST {{Base_URL}}/api/Coins
 Content-Type: application/json
 
 {
-    "nominal": "5"
+    "nominal": "10"
 }
 
 ###

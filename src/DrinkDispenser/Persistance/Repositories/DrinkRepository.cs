@@ -13,7 +13,6 @@ public class DrinkRepository(DatabaseContext context) : RepositoryBase<Drink>(co
 
     public async Task<Drink> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
         await Set
-        .AsNoTracking()
         .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
             ?? throw new NotFoundException("Напиток не найден.");
 

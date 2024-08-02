@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DrinkDispenser.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DrinkDispenser.Persistance.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240802155207_NotNullableBalance")]
+    partial class NotNullableBalance
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
@@ -98,8 +101,7 @@ namespace DrinkDispenser.Persistance.Migrations
                 {
                     b.HasOne("DrinkDispenser.Domain.Entities.VendingMachine", "VendingMachine")
                         .WithMany("Coins")
-                        .HasForeignKey("VendingMachineId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("VendingMachineId");
 
                     b.Navigation("VendingMachine");
                 });
@@ -108,8 +110,7 @@ namespace DrinkDispenser.Persistance.Migrations
                 {
                     b.HasOne("DrinkDispenser.Domain.Entities.VendingMachine", "VendingMachine")
                         .WithMany("Drinks")
-                        .HasForeignKey("VendingMachineId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("VendingMachineId");
 
                     b.Navigation("VendingMachine");
                 });

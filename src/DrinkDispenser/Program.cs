@@ -35,6 +35,7 @@ var app = builder.Build();
     // configure pipeline
 
     app.MapControllers();
+    app.UseRouting();
     app.UseExceptionHandler();
 }
 

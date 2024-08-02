@@ -17,7 +17,9 @@ public class Drink : Entity<Guid>
     public Price Price { get; private set; } = null!;
     public bool IsAvailable { get; private set; }
 
-    public VendingMachine? VendingMachine { get; private set; } = null!;
+    public VendingMachine VendingMachine { get; private set; } = null!;
+
+    public Guid? VendingMachineId { get; private set; }
 
     public static Drink Create(string name, decimal price) =>
          new Drink(name, Price.Create(price));

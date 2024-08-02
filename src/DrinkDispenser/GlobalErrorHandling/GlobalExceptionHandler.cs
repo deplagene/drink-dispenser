@@ -13,7 +13,8 @@ public class GlobalExceptionHandler : IExceptionHandler
         var problemDetails = new ProblemDetails
         {
             Status =StatusCodes.Status500InternalServerError,
-            Title = "Упс, что-то пошло не так"
+            Title = "Упс, что-то пошло не так",
+            Detail = exception.Message
         };
 
         httpContext.Response.StatusCode = problemDetails.Status.Value;

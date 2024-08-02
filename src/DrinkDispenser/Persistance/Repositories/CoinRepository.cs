@@ -13,7 +13,6 @@ public class CoinRepository(DatabaseContext context) : RepositoryBase<Coin>(cont
 
     public async Task<Coin> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
         await Set
-            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
             ?? throw new NotFoundException("Монета не найдена.");
 
