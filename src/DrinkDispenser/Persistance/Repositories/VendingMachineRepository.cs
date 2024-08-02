@@ -1,5 +1,6 @@
 using DrinkDispenser.Domain.Entities;
 using DrinkDispenser.Domain.Repositories;
+using DrinkDispenser.Errors;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrinkDispenser.Persistance.Repositories;
@@ -13,7 +14,8 @@ public class VendingMachineRepository(DatabaseContext context) : RepositoryBase<
     public async Task<VendingMachine> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
         await Set
             .AsNoTracking()
-            .SingleAsync(x => x.Id.Equals(id), cancellationToken);
+            .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
+            ?? throw new NotFoundException("Автомат не найден.");
 
     public void Remove(VendingMachine entity) =>
         Set.Remove(entity);

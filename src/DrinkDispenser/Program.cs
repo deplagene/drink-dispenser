@@ -1,4 +1,5 @@
 using DrinkDispenser.Application;
+using DrinkDispenser.GlobalErrorHandling;
 using DrinkDispenser.Mapping;
 using DrinkDispenser.Persistance;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
     // configure services(Dependency Injection)
 
     builder.Services
-        .AddProblemDetails()
+        .AddExceptionHandler<NotFoundExceptionHandler>()
+        .AddExceptionHandler<GlobalExceptionHandler>()
+        .AddProblemDetails();
+
+    builder.Services
         .AddControllers();
 
     builder.Services
@@ -30,6 +35,7 @@ var app = builder.Build();
     // configure pipeline
 
     app.MapControllers();
+    app.UseExceptionHandler();
 }
 
 await app.Services

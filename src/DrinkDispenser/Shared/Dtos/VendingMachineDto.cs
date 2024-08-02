@@ -8,5 +8,5 @@ public sealed record VendingMachineDto
     public string Model { get; init; } = null!;
     public int CountOfAvailableDrinks { get; init; }
 
-    public List<string> DrinksTitle { get; set; }
+    public List<string> DrinksTitle { get; set; } = null!;
 }

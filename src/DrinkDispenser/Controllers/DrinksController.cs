@@ -45,5 +45,5 @@ public class DrinksController(
         [FromRoute] Get.Query query,
         CancellationToken cancellationToken = default) =>
             await sender.Send(query, cancellationToken)
-            .ThenAsync(drink => mapper.Map<DrinkDto>(drink.Value));
+            .ThenAsync(mapper.Map<DrinkDto>);
 }

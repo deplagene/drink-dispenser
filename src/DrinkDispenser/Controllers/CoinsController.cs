@@ -37,7 +37,7 @@ public class CoinsController(
         [FromRoute] Get.Query query,
         CancellationToken cancellationToken = default) =>
             await sender.Send(query, cancellationToken)
-                .ThenAsync(coin => mapper.Map<CoinDto>(coin.Value));
+                .ThenAsync(mapper.Map<CoinDto>);
 
     [HttpDelete("{id:guid}")]
     [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]

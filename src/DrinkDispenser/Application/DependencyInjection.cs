@@ -1,4 +1,6 @@
 using DrinkDispenser.Application.Behavior;
+using DrinkDispenser.Application.Common.Interfaces;
+using DrinkDispenser.Application.Services;
 using FluentValidation;
 
 namespace DrinkDispenser.Application;
@@ -14,6 +16,8 @@ public static class DependencyInjection
         });
 
         services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
+
+        services.AddScoped<IVendingMachinesService, VendingMachinesService>();
 
         return services;
     }

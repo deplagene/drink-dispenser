@@ -1,10 +1,11 @@
 @Base_URL = http://localhost:5042
-@vendingMachine_Id = c74fadb5-acda-4a1c-a67e-229f210aceae
+@vendingMachine_Id = 3d876e49-fe64-406f-8320-0713c1f4224a
+@drink_Id = eff0d43c-b949-4159-a8f5-a086020ca4ad
 POST {{Base_URL}}/api/VendingMachines
 Content-Type: application/json
 
 {
-    "model": "Z23"
+    "model": "W232"
 }
 
 ###
@@ -14,3 +15,16 @@ GET {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}
 ###
 
 DELETE {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}
+
+###
+
+POST  {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}/drinks
+Content-Type: application/json
+
+{
+    "drinkId": "eff0d43c-b949-4159-a8f5-a086020ca4ad"
+}
+
+###
+
+GET  {{Base_URL}}/api/VendingMachines/{{vendingMachine_Id}}/drinks/{{drink_Id}}

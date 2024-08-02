@@ -20,9 +20,9 @@ public class Drink : Entity<Guid>
     public VendingMachine? VendingMachine { get; private set; } = null!;
 
     public static Drink Create(string name, decimal price) =>
-         new Drink(name, Price.Create(price).Value);
+         new Drink(name, Price.Create(price));
 
     public void SetName(string value) => Name = value;
 
-    public void SetPrice(decimal value) => Price = Price.Create(value).Value;
+    public void SetPrice(decimal value) => Price = Price.Create(value);
 }

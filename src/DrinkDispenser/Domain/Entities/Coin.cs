@@ -17,6 +17,6 @@ public class Coin : Entity<Guid>
 
     public static Coin Create(int nominal)
     {
-        return new Coin(Nominal.Create(nominal).Value);
+        return new Coin(Nominal.Create(nominal));
     }
 }

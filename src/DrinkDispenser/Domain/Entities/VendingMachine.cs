@@ -39,8 +39,11 @@ public class VendingMachine : Entity<Guid>
 
     public void BuyDrink(Drink drink)
     {
-        _drinks.Remove(drink);
+        if(Balance <= 0)
+            throw new InvalidOperationException("Balance can't be less than zero");
+
         Balance -= drink.Price.Value;
         CountOfAvailableDrinks = _drinks.Count;
+        _drinks.Remove(drink);
     }
 }

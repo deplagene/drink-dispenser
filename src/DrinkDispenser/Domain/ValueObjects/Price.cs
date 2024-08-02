@@ -1,5 +1,3 @@
-using ErrorOr;
-
 namespace DrinkDispenser.Domain.ValueObjects;
 
 public record Price
@@ -11,6 +9,6 @@ public record Price
         Value = value;
     }
 
-    public static ErrorOr<Price> Create(decimal value)
-        =>  value < 0 ? Error.Validation("Price cannot be negative") : new Price(value);
+    public static Price Create(decimal value)
+        =>  value < 0 ? throw new ArgumentOutOfRangeException(nameof(value), "Цена не может быть отрицательной") : new Price(value);
 }

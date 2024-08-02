@@ -1,5 +1,6 @@
 using DrinkDispenser.Domain.Entities;
 using DrinkDispenser.Domain.Repositories;
+using DrinkDispenser.Errors;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrinkDispenser.Persistance.Repositories;
@@ -13,7 +14,8 @@ public class DrinkRepository(DatabaseContext context) : RepositoryBase<Drink>(co
     public async Task<Drink> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
         await Set
         .AsNoTracking()
-        .SingleAsync(x => x.Id.Equals(id), cancellationToken);
+        .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
+            ?? throw new NotFoundException("Напиток не найден.");
 
     public void Remove(Drink entity) =>
         Set.Remove(entity);

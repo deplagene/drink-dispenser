@@ -1,12 +1,12 @@
 @Base_URL = http://localhost:5042
-@drinkId = B6B347C5-D6BD-40BC-A997-F3F0846A88D9
+@drinkId = b862a991-8240-4fe4-98a4-547fc6c34fb5
 
 POST {{Base_URL}}/api/Drinks
 Content-Type: application/json
 
 {
-    "name": "Coca Cola",
-    "price": 15
+    "name": "Lit Energy",
+    "price": 20
 }
 
 ###

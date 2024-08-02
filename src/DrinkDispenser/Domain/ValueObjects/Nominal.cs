@@ -1,5 +1,3 @@
-using ErrorOr;
-
 namespace DrinkDispenser.Domain.ValueObjects;
 
 public record Nominal
@@ -10,7 +8,7 @@ public record Nominal
 
     public int Value { get; init; }
 
-    public static ErrorOr<Nominal> Create(int value) => !SupportedValues.Contains(value)
-            ? Error.Validation($"{value} не поддерживается. Поддерживаемые значения: {string.Join(", ", SupportedValues)}")
+    public static Nominal Create(int value) => !SupportedValues.Contains(value)
+            ? throw new ArgumentException($"{value} не поддерживается. Поддерживаемые значения: {string.Join(", ", SupportedValues)}")
             : new Nominal(value);
 }
