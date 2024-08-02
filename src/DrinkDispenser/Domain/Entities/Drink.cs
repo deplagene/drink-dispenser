@@ -21,10 +21,20 @@ public class Drink : Entity<Guid>
 
     public Guid? VendingMachineId { get; private set; }
 
-    public static Drink Create(string name, decimal price) =>
-         new Drink(name, Price.Create(price));
+    public static Drink Create(string name, decimal price)
+    {
+        return string.IsNullOrWhiteSpace(name)
+            ? throw new ArgumentNullException("Название напитка не может быть пустым")
+            : new Drink(name, Price.Create(price));
+    }
 
-    public void SetName(string value) => Name = value;
+    public void SetName(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            throw new ArgumentNullException("Название напитка не может быть пустым");
+
+        Name = value;
+    }
 
     public void SetPrice(decimal value) => Price = Price.Create(value);
 }

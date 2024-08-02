@@ -5,8 +5,8 @@ POST {{Base_URL}}/api/Drinks
 Content-Type: application/json
 
 {
-    "name": "Lit Energy",
-    "price": 20
+    "name": "",
+    "price": 0
 }
 
 ###

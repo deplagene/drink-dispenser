@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
     // configure services(Dependency Injection)
 
     builder.Services
+        .AddExceptionHandler<BadRequestExceptionHandler>()
         .AddExceptionHandler<NotFoundExceptionHandler>()
         .AddExceptionHandler<GlobalExceptionHandler>()
         .AddProblemDetails();
