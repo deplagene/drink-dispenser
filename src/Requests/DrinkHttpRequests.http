@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "name": "",
-    "price": 0
+    "price": 30
 }
 
 ###
