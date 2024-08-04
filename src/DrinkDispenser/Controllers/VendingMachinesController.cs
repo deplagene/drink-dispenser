@@ -82,4 +82,14 @@ public class VendingMachinesController(
                 coinId: request.CoinId,
                 cancellationToken)
             .ThenAsync(mapper.Map<VendingMachineDto>);
+
+    [HttpGet("{id:guid}/drinks", Name = "get-available-vendingMachines")]
+    [ProducesResponseType(typeof(IReadOnlyCollection<DrinkDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    public async Task<IReadOnlyCollection<DrinkDto>> GetAvailable(
+        [FromRoute] GetAvailableDrinks.Query query,
+        CancellationToken cancellationToken) =>
+        await sender.Send(query, cancellationToken)
+            .ThenAsync(mapper.Map<IReadOnlyCollection<DrinkDto>>);
 }

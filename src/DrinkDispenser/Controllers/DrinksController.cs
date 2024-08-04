@@ -46,4 +46,14 @@ public class DrinksController(
         CancellationToken cancellationToken = default) =>
             await sender.Send(query, cancellationToken)
             .ThenAsync(mapper.Map<DrinkDto>);
+
+    [HttpGet(Name = "get-available-drinks")]
+    [ProducesResponseType(typeof(IReadOnlyCollection<DrinkDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    public async Task<IReadOnlyCollection<DrinkDto>> GetAvailable(
+        [FromQuery] GetAvailable.Query query,
+        CancellationToken cancellationToken) =>
+            await sender.Send(query, cancellationToken)
+            .ThenAsync(mapper.Map<IReadOnlyCollection<DrinkDto>>);
 }

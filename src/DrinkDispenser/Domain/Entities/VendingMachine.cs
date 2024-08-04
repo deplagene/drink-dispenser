@@ -50,6 +50,7 @@ public class VendingMachine : Entity<Guid>
 
         Balance -= drink.Price.Value;
         CountOfAvailableDrinks = _drinks.Count;
+        drink.SetAvailableToFalse();
         _drinks.Remove(drink);
     }
 }

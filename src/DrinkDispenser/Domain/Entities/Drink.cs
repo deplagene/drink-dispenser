@@ -37,4 +37,6 @@ public class Drink : Entity<Guid>
     }
 
     public void SetPrice(decimal value) => Price = Price.Create(value);
+
+    public void SetAvailableToFalse() => IsAvailable = false;
 }

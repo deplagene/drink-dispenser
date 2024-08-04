@@ -5,8 +5,8 @@ POST {{Base_URL}}/api/Drinks
 Content-Type: application/json
 
 {
-    "name": "",
-    "price": 30
+    "name": "Cola",
+    "price": 10
 }
 
 ###
@@ -16,3 +16,7 @@ GET {{Base_URL}}/api/Drinks/{{drinkId}}
 ###
 
 DELETE {{Base_URL}}/api/Drinks/{{drinkId}}
+
+###
+
+GET {{Base_URL}}/api/Drinks?page=1&pageSize=10
