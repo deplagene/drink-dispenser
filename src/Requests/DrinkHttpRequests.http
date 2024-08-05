@@ -5,8 +5,8 @@ POST {{Base_URL}}/api/Drinks
 Content-Type: application/json
 
 {
-    "name": "Cola",
-    "price": 10
+    "name": "Mirinda",
+    "price": 50
 }
 
 ###

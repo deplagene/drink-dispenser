@@ -16,6 +16,14 @@ public class CoinRepository(DatabaseContext context) : RepositoryBase<Coin>(cont
             .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
             ?? throw new NotFoundException("Монета не найдена.");
 
+    public Task<bool> IsCoinExistsInVendingMachineAsync(
+        Guid vendingMachineId,
+        Guid coinId,
+        CancellationToken cancellationToken = default) =>
+            Set
+            .Where(x => x.VendingMachineId.Equals(vendingMachineId))
+            .AnyAsync(x => x.Id.Equals(coinId), cancellationToken);
+
     public void Remove(Coin entity) =>
         Set.Remove(entity);
 }

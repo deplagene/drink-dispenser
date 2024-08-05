@@ -19,6 +19,9 @@ public class VendingMachinesService(
         var coin = await coinRepository
             .GetByIdAsync(coinId, cancellationToken);
 
+        if(await coinRepository.IsCoinExistsInVendingMachineAsync(vendingMachineId, coinId, cancellationToken))
+            throw new InvalidOperationException("Монета уже добавлена в автомат.");
+
         vendingMachine.AddCoin(coin);
 
         await unitOfWork
@@ -34,6 +37,9 @@ public class VendingMachinesService(
 
         var drink = await drinkRepository
             .GetByIdAsync(drinkId, cancellationToken);
+
+        if(await drinkRepository.IsDrinkExistsInVendingMachineAsync(vendingMachineId, drinkId, cancellationToken))
+            throw new InvalidOperationException("Напиток уже добавлен в автомат.");
 
         vendingMachine.AddDrink(drink);
 

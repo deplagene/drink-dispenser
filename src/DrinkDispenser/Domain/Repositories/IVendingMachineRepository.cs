@@ -13,9 +13,5 @@ public interface IWriteVendingMachineRepository : IWriteRepository<VendingMachin
 
 public interface IReadVendingMachineRepository : IReadRepository<VendingMachine, Guid>
 {
-    Task<IReadOnlyCollection<Drink>> GetAvailableDrinksAsync(
-        Guid id,
-        int page = 1,
-        int pageSize = 10,
-        CancellationToken cancellationToken = default);
+    Task<IReadOnlyCollection<Drink>> GetAvailableDrinksAsync(Guid id, int page = 1, int pageSize = 10, CancellationToken cancellationToken = default);
 }

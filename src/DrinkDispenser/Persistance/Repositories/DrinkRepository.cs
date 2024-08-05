@@ -38,6 +38,14 @@ public class DrinkRepository(DatabaseContext context) : RepositoryBase<Drink>(co
         .FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
             ?? throw new NotFoundException("Напиток не найден.");
 
+    public async Task<bool> IsDrinkExistsInVendingMachineAsync(
+        Guid vendingMachineId,
+        Guid drinkId,
+        CancellationToken cancellationToken = default) =>
+            await Set
+                .Where(x => x.VendingMachineId.Equals(vendingMachineId))
+                .AnyAsync(x => x.Id.Equals(drinkId), cancellationToken);
+
     public void Remove(Drink entity) =>
         Set.Remove(entity);
 }

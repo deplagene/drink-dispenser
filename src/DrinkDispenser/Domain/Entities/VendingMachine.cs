@@ -10,6 +10,7 @@ public class VendingMachine : Entity<Guid>
     {
         Model = model;
         Balance = 0;
+        CountOfAvailableDrinks = 0;
     }
     private readonly HashSet<Drink> _drinks = [];
     private readonly HashSet<Coin> _coins = [];
@@ -37,7 +38,7 @@ public class VendingMachine : Entity<Guid>
     public void AddDrink(Drink drink)
     {
         _drinks.Add(drink);
-        CountOfAvailableDrinks = _drinks.Count;
+        CountOfAvailableDrinks++;
     }
 
     public void BuyDrink(Drink drink)
@@ -49,8 +50,11 @@ public class VendingMachine : Entity<Guid>
             throw new InvalidOperationException("Недостаточно средств для покупки напитка.");
 
         Balance -= drink.Price.Value;
-        CountOfAvailableDrinks = _drinks.Count;
-        drink.SetAvailableToFalse();
+
+        CountOfAvailableDrinks--;
+
+        drink.SetAvailable(false);
+
         _drinks.Remove(drink);
     }
 }
